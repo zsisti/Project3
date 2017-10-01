@@ -30,13 +30,27 @@ int32_t isOurs(const char* s) {
  * copying the characters from 'src' and return a pointer to the first
  * character of actual string data */
 char* utstrdup(const char* src) {
-	return NULL;
+	uint32_t srcSize;
+	for (int i=0; src[i]!=0; i++){											//count # of characters in src
+		srcSize++;
+	}
+	String* copy = malloc(sizeof(String) + srcSize + 1);					//Allocate memory for new String
+	(*copy).length=srcSize;													//Set length, capacity to be the # of characters in src
+	(*copy).capacity=srcSize;
+	(*copy).check=SIGNATURE;												//set check to our signature
+	for(uint32_t i=0; i<=srcSize; i++){											//Set data to be the same as given String
+		(*copy).data[i]=src[i];
+		(*copy).data[i+1]=0;
+	}
+	char* firstChar=(*copy).data;													//Address of character array
+	return firstChar;
 }
 
 /* the parameter 'utstr' must be a utstring. Find the length of this
  * string by accessing the meta-data and return that length */
 uint32_t utstrlen(const char* utstr) {
-	return NULL;
+	uint32_t length = (*utstr).length;												//return length stored in heap for utstr
+	return length;
 }
 
 /* s must be a utstring. suffix can be an ordinary string (or a
@@ -45,7 +59,17 @@ uint32_t utstrlen(const char* utstr) {
  * as will actually fit in s. Update the length meta-data for utstring
  * s and then return s */
 char* utstrcat(char* s, const char* suffix) {
-	return NULL;
+	uint32_t newLength=(*s).length;													//counter for new length, beginnning at original length
+	uint32_t sufCount=0;															//counter for suffix char array position
+	for(uint32_t i=(*s).length; suffix[sufCount]!=0; i++){							//loop to put each element of char arr into s, stopping at null character
+		if (i==(*s).capacity) break;												//breaks loop if i has exceeded capacity of s
+		(*s).data[i]= suffix[sufCount];
+		newLength++, sufCount++;													//increment counter for new length, and suffix position
+	}
+	(*s).data[newLength]=0;															//insert null character after character array
+	(*s).length=newLength;															//set s's length to new length counter
+	char* firstChar = (*s).data;													//return addr of character array
+	return firstChar;
 }
 
 /* 'dst' must be a utstring. 'src' can be an ordinary string (or a
@@ -57,7 +81,16 @@ char* utstrcat(char* s, const char* suffix) {
  * allocate any additional storage, do not change capacity. Update the
  * length meta-data for dst and then return dst */
 char* utstrcpy(char* dst, const char* src) {
-	return NULL;
+	uint32_t newLength=0;															//counter for new length
+	for(uint32_t i=0; src[i]!=0; i++){												//loop to put each element of char arr into dst, stopping at null character
+		if (i==(*dst).capacity) break;												//breaks loop if i has exceeded capacity of dst
+		(*dst).data[i]= src[i];
+		newLength++;																//increment counter for new length
+	}
+	(*dst).data[newLength]=0;														//insert null character after character array
+	(*dst).length=newLength;														//set dst's length to new length counter
+	char* firstChar = (*dst).data;													//return addr of character array
+	return firstChar;
 }
 
 /* self must be a utstring. deallocate the storage for this string
@@ -65,6 +98,7 @@ char* utstrcpy(char* dst, const char* src) {
  * the chunk, note that the start of the chunk will be 12 bytes before
  * *self) */
 void utstrfree(char* self) {
+	free (self-12);																	//deallocate chunk on the heap, starting at addr 12B before char str
 }
 
 /* s must be a utstring.  ensure that s has capacity at least as large
@@ -77,5 +111,13 @@ void utstrfree(char* self) {
  * deallocate s and then return a pointer to the first character in
  * the newly allocated storage */
 char* utstrrealloc(char* s, uint32_t new_capacity) {
-	return NULL;
+	if ((*s).capacity<new_capacity){
+		char* newS= malloc(sizeof(String)+new_capacity+1);
+		utstrcpy(newS, s);
+		(*newS).check=SIGNATURE;
+		utstrfree(s);
+		char* firstChar= (*newS).data;
+		return firstChar;
+	}
+	else return s;
 }
