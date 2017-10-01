@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/d/Zach/Documents/UT/EE312/Project3/Project3.cpp
+assert.h
+-
+string.h
+-
+stdlib.h
+-
+String.h
+/cygdrive/d/Zach/Documents/UT/EE312/Project3/String.h
+
+/cygdrive/d/Zach/Documents/UT/EE312/Project3/String.h
+stdint.h
+-
+
+/cygdrive/d/Zach/Documents/UT/EE312/Project3/main.cpp
+stdio.h
+-
+string.h
+-
+String.h
+/cygdrive/d/Zach/Documents/UT/EE312/Project3/String.h
+stdlib.h
+-
+
