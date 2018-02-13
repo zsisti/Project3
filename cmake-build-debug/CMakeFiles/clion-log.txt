@@ -1,6 +1,6 @@
-C:\Users\Zachary\.CLion2017.2\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/d/Zach/Documents/UT/EE312/Project3
--- The C compiler identification is GNU 6.4.0
--- The CXX compiler identification is GNU 6.4.0
+C:\Users\Acer\.CLion2017.2\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/Acer/Documents/EE312/Project3
+-- The C compiler identification is GNU 6.3.0
+-- The CXX compiler identification is GNU 6.3.0
 -- Check for working C compiler: /usr/bin/cc
 -- Check for working C compiler: /usr/bin/cc -- works
 -- Detecting C compiler ABI info
@@ -15,4 +15,4 @@ C:\Users\Zachary\.CLion2017.2\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TY
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /cygdrive/d/Zach/Documents/UT/EE312/Project3/cmake-build-debug
+-- Build files have been written to: /cygdrive/c/Users/Acer/Documents/EE312/Project3/cmake-build-debug

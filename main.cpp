@@ -87,6 +87,27 @@ void testStage3(void) {
 	}
 	utstrfree(ut_str1);
 }
+void testStage5(void) {
+	int k;
+	char* ut_str1 = utstrdup("");
+	ut_str1 = utstrrealloc(ut_str1, BIG); // big, big string
+
+	printf("attempting stage 3 test. This shouldn't take long...\n");
+	printf("(no really, it shouldn't take long, if it does, you fail this test)\n");
+	fflush(stdout);
+
+	for (k = 0; k < BIG; k += 1) {
+		utstrcat(ut_str1, "*");
+	}
+	if (ut_str1[BIG-1] != '*') {
+		printf("stage3 fails for not copying all the characters\n");
+	} else if (strlen(ut_str1) != BIG) {
+		printf("Hmmm, stage3 has something wrong\n");
+	} else {
+		printf("grats, stage 3 passed (unless it took a long time to print this message)\n");
+	}
+	utstrfree(ut_str1);
+}
 #define READY_FOR_STAGE_4
 #ifdef READY_FOR_STAGE_4
 void testStage4(void) {
@@ -96,11 +117,11 @@ void testStage4(void) {
 	 * just uncomment the line and see what happens (it should crash) 
 	 */
 	 char p[20] = "Hello";
-//	 printf("crashing with utstrlen\n\n\n"); utstrlen("Hello World");	
-//	 printf("crashing with utstrcpy\n\n\n"); utstrcpy(p, "Hello World");
-//	 printf("crashing with utstrcat\n\n\n"); utstrcat(p, "Hello World");
-//	 printf("crashing with utstrfree\n\n\n"); utstrfree((char *)malloc(20));
-//	 printf("crashing with utstrrealloc\n\n\n"); utstrrealloc((char *)malloc(20), 40);
+	 //printf("crashing with utstrlen\n\n\n"); utstrlen("Hello World");
+	 //printf("crashing with utstrcpy\n\n\n"); utstrcpy(p, "Hello World");
+	 //printf("crashing with utstrcat\n\n\n"); utstrcat(p, "Hello World");
+	 //printf("crashing with utstrfree\n\n\n"); utstrfree((char *)malloc(20));
+	 //printf("crashing with utstrrealloc\n\n\n"); utstrrealloc((char *)malloc(20), 40);
 }
 #endif /* READY_FOR_STAGE_4 */
 

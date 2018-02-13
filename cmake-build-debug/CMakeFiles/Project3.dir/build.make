@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/Zachary/.CLion2017.2/system/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /cygdrive/c/Users/Acer/.CLion2017.2/system/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/Zachary/.CLion2017.2/system/cygwin_cmake/bin/cmake.exe -E remove -f
+RM = /cygdrive/c/Users/Acer/.CLion2017.2/system/cygwin_cmake/bin/cmake.exe -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cygdrive/d/Zach/Documents/UT/EE312/Project3
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/Acer/Documents/EE312/Project3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cygdrive/d/Zach/Documents/UT/EE312/Project3/cmake-build-debug
+CMAKE_BINARY_DIR = /cygdrive/c/Users/Acer/Documents/EE312/Project3/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Project3.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/Project3.dir/flags.make
 
 CMakeFiles/Project3.dir/main.cpp.o: CMakeFiles/Project3.dir/flags.make
 CMakeFiles/Project3.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/Zach/Documents/UT/EE312/Project3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Project3.dir/main.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project3.dir/main.cpp.o -c /cygdrive/d/Zach/Documents/UT/EE312/Project3/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Acer/Documents/EE312/Project3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Project3.dir/main.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project3.dir/main.cpp.o -c /cygdrive/c/Users/Acer/Documents/EE312/Project3/main.cpp
 
 CMakeFiles/Project3.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project3.dir/main.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/Zach/Documents/UT/EE312/Project3/main.cpp > CMakeFiles/Project3.dir/main.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Acer/Documents/EE312/Project3/main.cpp > CMakeFiles/Project3.dir/main.cpp.i
 
 CMakeFiles/Project3.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project3.dir/main.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/Zach/Documents/UT/EE312/Project3/main.cpp -o CMakeFiles/Project3.dir/main.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Acer/Documents/EE312/Project3/main.cpp -o CMakeFiles/Project3.dir/main.cpp.s
 
 CMakeFiles/Project3.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/Project3.dir/main.cpp.o.provides.build: CMakeFiles/Project3.dir/main.
 
 CMakeFiles/Project3.dir/Project3.cpp.o: CMakeFiles/Project3.dir/flags.make
 CMakeFiles/Project3.dir/Project3.cpp.o: ../Project3.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/Zach/Documents/UT/EE312/Project3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Project3.dir/Project3.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project3.dir/Project3.cpp.o -c /cygdrive/d/Zach/Documents/UT/EE312/Project3/Project3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/Acer/Documents/EE312/Project3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Project3.dir/Project3.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project3.dir/Project3.cpp.o -c /cygdrive/c/Users/Acer/Documents/EE312/Project3/Project3.cpp
 
 CMakeFiles/Project3.dir/Project3.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project3.dir/Project3.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/Zach/Documents/UT/EE312/Project3/Project3.cpp > CMakeFiles/Project3.dir/Project3.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/Acer/Documents/EE312/Project3/Project3.cpp > CMakeFiles/Project3.dir/Project3.cpp.i
 
 CMakeFiles/Project3.dir/Project3.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project3.dir/Project3.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/Zach/Documents/UT/EE312/Project3/Project3.cpp -o CMakeFiles/Project3.dir/Project3.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/Acer/Documents/EE312/Project3/Project3.cpp -o CMakeFiles/Project3.dir/Project3.cpp.s
 
 CMakeFiles/Project3.dir/Project3.cpp.o.requires:
 
@@ -117,7 +117,7 @@ Project3.exe: CMakeFiles/Project3.dir/main.cpp.o
 Project3.exe: CMakeFiles/Project3.dir/Project3.cpp.o
 Project3.exe: CMakeFiles/Project3.dir/build.make
 Project3.exe: CMakeFiles/Project3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/d/Zach/Documents/UT/EE312/Project3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Project3.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/Acer/Documents/EE312/Project3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Project3.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Project3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -135,6 +135,6 @@ CMakeFiles/Project3.dir/clean:
 .PHONY : CMakeFiles/Project3.dir/clean
 
 CMakeFiles/Project3.dir/depend:
-	cd /cygdrive/d/Zach/Documents/UT/EE312/Project3/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/d/Zach/Documents/UT/EE312/Project3 /cygdrive/d/Zach/Documents/UT/EE312/Project3 /cygdrive/d/Zach/Documents/UT/EE312/Project3/cmake-build-debug /cygdrive/d/Zach/Documents/UT/EE312/Project3/cmake-build-debug /cygdrive/d/Zach/Documents/UT/EE312/Project3/cmake-build-debug/CMakeFiles/Project3.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cygdrive/c/Users/Acer/Documents/EE312/Project3/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/Acer/Documents/EE312/Project3 /cygdrive/c/Users/Acer/Documents/EE312/Project3 /cygdrive/c/Users/Acer/Documents/EE312/Project3/cmake-build-debug /cygdrive/c/Users/Acer/Documents/EE312/Project3/cmake-build-debug /cygdrive/c/Users/Acer/Documents/EE312/Project3/cmake-build-debug/CMakeFiles/Project3.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Project3.dir/depend
 

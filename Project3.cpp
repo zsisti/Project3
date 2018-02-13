@@ -30,26 +30,27 @@ int32_t isOurs(const char* s) {
  * copying the characters from 'src' and return a pointer to the first
  * character of actual string data */
 char* utstrdup(const char* src) {
-	uint32_t srcSize;
-	for (int i=0; src[i]!=0; i++){											//count # of characters in src
+	uint32_t srcSize = 0;
+	for (int i=0; src[i]!=0; i++){													//count # of characters in src
 		srcSize++;
 	}
 	String* copy = (String*)malloc(sizeof(String) + srcSize + 1);					//Allocate memory for new String
-	copy->length=srcSize;													//Set length, capacity to be the # of characters in src
+	copy->length=srcSize;															//Set length, capacity to be the # of characters in src
 	copy->capacity=srcSize;
-	copy->check=SIGNATURE;												//set check to our signature
-	for(uint32_t i=0; i<=srcSize; i++){											//Set data to be the same as given String
+	copy->check=SIGNATURE;															//set check to our signature
+	for(uint32_t i=0; i<=srcSize; i++){												//Set data to be the same as given String
 		copy->data[i]=src[i];
 		copy->data[i+1]=0;
 	}
-	char* firstChar=copy->data;													//Address of character array
+	char* firstChar=copy->data;														//Address of character array
 	return firstChar;
 }
 
 /* the parameter 'utstr' must be a utstring. Find the length of this
  * string by accessing the meta-data and return that length */
 uint32_t utstrlen(const char* utstr) {
-	uint32_t length = STRING(utstr)->length;												//return length stored in heap for utstr
+	assert(isOurs(utstr));
+	uint32_t length = STRING(utstr)->length;										//return length stored in heap for utstr
 	return length;
 }
 
@@ -59,15 +60,16 @@ uint32_t utstrlen(const char* utstr) {
  * as will actually fit in s. Update the length meta-data for utstring
  * s and then return s */
 char* utstrcat(char* s, const char* suffix) {
-	uint32_t newLength=STRING(s)->length;													//counter for new length, beginnning at original length
+	assert(isOurs(s));
+	uint32_t newLength=STRING(s)->length;											//counter for new length, beginnning at original length
 	uint32_t sufCount=0;															//counter for suffix char array position
-	for(uint32_t i=STRING(s)->length; suffix[sufCount]!=0; i++){							//loop to put each element of char arr into s, stopping at null character
-		if (i==STRING(s)->capacity) break;												//breaks loop if i has exceeded capacity of s
-        STRING(s)->data[i]= suffix[sufCount];
+	for(uint32_t i=STRING(s)->length; suffix[sufCount]!=0; i++){					//loop to put each element of char arr into s, stopping at null character
+		if (i==STRING(s)->capacity) break;											//breaks loop if i has exceeded capacity of s
+        s[i]= suffix[sufCount];
 		newLength++, sufCount++;													//increment counter for new length, and suffix position
 	}
-    STRING(s)->data[newLength]=0;															//insert null character after character array
-    STRING(s)->length=newLength;															//set s's length to new length counter
+    s[newLength]=0;																	//insert null character after character array
+    STRING(s)->length=newLength;													//set s's length to new length counter
 	return s;                                                                       //return addr of character array
 }
 
@@ -80,15 +82,16 @@ char* utstrcat(char* s, const char* suffix) {
  * allocate any additional storage, do not change capacity. Update the
  * length meta-data for dst and then return dst */
 char* utstrcpy(char* dst, const char* src) {
+	assert(isOurs(dst));
 	uint32_t newLength=0;															//counter for new length
 	for(uint32_t i=0; src[i]!=0; i++){												//loop to put each element of char arr into dst, stopping at null character
-		if (i==STRING(dst)->capacity) break;												//breaks loop if i has exceeded capacity of dst
-        STRING(dst)->data[i]= src[i];
+		if (i==STRING(dst)->capacity) break;										//breaks loop if i has exceeded capacity of dst
+        dst[i]= src[i];
 		newLength++;																//increment counter for new length
 	}
-    STRING(dst)->data[newLength]=0;														//insert null character after character array
-    STRING(dst)->length=newLength;														//set dst's length to new length counter
-	return dst;                                                                   //return addr of character array
+    dst[newLength]=0;																//insert null character after character array
+    STRING(dst)->length=newLength;													//set dst's length to new length counter
+	return dst;                                                                  	//return addr of character array
 }
 
 /* self must be a utstring. deallocate the storage for this string
@@ -96,6 +99,7 @@ char* utstrcpy(char* dst, const char* src) {
  * the chunk, note that the start of the chunk will be 12 bytes before
  * *self) */
 void utstrfree(char* self) {
+	assert(isOurs(self));
 	free (self-12);																	//deallocate chunk on the heap, starting at addr 12B before char str
 }
 
@@ -109,14 +113,15 @@ void utstrfree(char* self) {
  * deallocate s and then return a pointer to the first character in
  * the newly allocated storage */
 char* utstrrealloc(char* s, uint32_t new_capacity) {
-	if ((STRING(s)->capacity)<new_capacity){
-		String* newS= (String*)malloc(sizeof(String)+new_capacity+1);
-        char* charArray = newS->data;
-		utstrcpy(charArray, s);
-		newS->check=SIGNATURE;
-		utstrfree(s);
-		char* firstChar= newS->data;
-		return firstChar;
+	assert(isOurs(s));
+	if ((STRING(s)->capacity)<new_capacity){										//if new_capacity is bigger than current capacity
+		String* newS= (String*)malloc(sizeof(String)+new_capacity+1);				//make a new String with capacity of new_capacity
+        newS->capacity= new_capacity;												//set capacity meta-data
+        char* charArray = newS->data;												//create pointer to character array
+		newS->check=SIGNATURE;														//set check meta-data
+		utstrcpy(charArray, s);														//put data from s into new String
+		utstrfree(s);																//free s
+		return charArray;
 	}
 	else return s;
 }

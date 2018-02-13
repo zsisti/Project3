@@ -1,4 +1,4 @@
-# Install script for directory: /cygdrive/d/Zach/Documents/UT/EE312/Project3
+# Install script for directory: /cygdrive/c/Users/Acer/Documents/EE312/Project3
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/cygdrive/d/Zach/Documents/UT/EE312/Project3/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/cygdrive/c/Users/Acer/Documents/EE312/Project3/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
